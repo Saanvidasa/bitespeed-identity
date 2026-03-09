@@ -5,6 +5,9 @@ import 'dotenv/config'
 const app = express()
 app.use(express.json())
 const prisma = new PrismaClient()
+app.get('/', (req, res) => {
+  res.json({ status: 'ok' })
+})
 
 app.post('/identify', async (req: Request, res: Response) => {
   const { email, phoneNumber } = req.body
